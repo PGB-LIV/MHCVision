@@ -40,11 +40,11 @@ python Setup.py install
 
 ### **Usage**
 ```
-usage: noname.py [options] input_file.csv
+usage: noname.py [options] input_file.csv -o/--output output_file.csv
 options:
 -a, --allele   REQUIRED: type the allele name i.e. HLA-A0101, which are supported in the "supplied_alleles.txt"
 -i, --input    REQUIRED: specify the input filename, the input file must be in ".CSV" format (comma-separated values), the column headers must contain 'Peptide', 'IC50','%Rank'
--o, --output   specify the output filename (optional)
+-o, --output   Optional: specify the output filename 
 -h, --help     Print the usage information'
 ```
 
