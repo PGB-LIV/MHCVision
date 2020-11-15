@@ -14,9 +14,9 @@ supported_allele = []
 with open('supplied_alleles.txt', 'rt') as fhla:
     for line in fhla:
         supported_allele.append(line.strip())
+        
+        
 # check if the user provided valid arguments
-
-
 def check_valid_argument(arg):
     invalid_flag = False
     if '-a' not in arg and '--allele' not in arg:
@@ -33,11 +33,11 @@ def check_valid_argument(arg):
 
 # print help statement
 def print_help_():
-    print('usage: noname.py [options] input_file.csv\n'
+    print('usage: noname.py [options] input_file.csv -o/--output output_file.csv\n'
           '-a, --allele   REQUIRED: type the allele name i.e. HLA-A0101, which are supported in the "supplied_alleles.txt"\n'
           '-i, --input    REQUIRED: specify the input filename, the input file must be in ".CSV" format (comma-separated values)'
           ', the column headers must contain "Peptide", "IC50","%Rank"\n'
-          '-o, --output   specify the output filename (optional)\n'
+          '-o, --output   Optional: specify the output filename\n'
           '-h, --help     Print the usage information')
 
 
