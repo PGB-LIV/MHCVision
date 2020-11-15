@@ -21,7 +21,7 @@ To install the model:
 
 1. Clone this repository
 ```
-git clone https://github.com/Phorutai/FDR_estimation
+git clone https://github.com/Phorutai/FDRestimation
 ```
 For other methods for cloning a GitHub repository, please see  [here](https://help.github.com/articles/cloning-a-repository/)
 
@@ -34,7 +34,7 @@ For more information, please see [here](https://packaging.python.org/tutorials/i
 
 3.  Run Setup.py inside FDR_estimation directory to install the model
 ```
-cd FDR_estimation
+cd FDRestimation
 python Setup.py install
 ```
 
