@@ -1,7 +1,7 @@
 # FDR_estimation
 FDR/PEP estimation for MHC-peptide binding prediction
 ### **Introduction**
-"noname" is the model for global and local FDR estimation for the predicted scores of MHC-peptide binding affinity. The model utlilises the approach of the Expectation Maximisation (EM) algorithm with the method of moments to estimate the parameters of data distribution to estimate the relative true and false data for global and local FDR calculation. The current version was build based on the predicted data using NetMHCpan (version >= 4.0). 
+"noname" is the model for global and local FDR estimation for the predicted scores of MHC-peptide binding affinity. The model utlilises the approach of the Expectation Maximisation (EM) algorithm with the method of moments to estimate the parameters of data distribution for determining the relative true and false data for global and local FDR calculation. The current version was build based on the predicted data using NetMHCpan (version >= 4.0). 
 
 Please see the original article for more information [here](link).
 If you fine "noname" useful in your research please cite:
