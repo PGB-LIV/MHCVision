@@ -5,7 +5,7 @@ The tool for global and local flase discovery rate (FDR) estimation for MHC-pept
 
 Please see the original article for more information [here](link).
 If you fine "noname" useful in your research please cite:
-cite what???
+Insert the paper's citation
 ### **How to install?**
 The model requires Python 3 ( >= 3.7) and the following python packages:
 
