@@ -1,8 +1,11 @@
 # FDR_estimation
 FDR/PEP estimation for MHC-peptide binding prediction
 ### **Introduction**
-what is the name of this tool?
+"noname" is the model for global and local FDR estimation for the predicted scores of MHC-peptide binding affinity. The model utlilises the approach of the Expectation Maximisation (EM) algorithm with the method of moments to estimate the parameters of data distribution to estimate the relative true and false data for global and local FDR calculation. The current version was build based on the predicted data using NetMHCpan (version >= 4.0). 
 
+Please see the original article for more information [here](link).
+If you fine "noname" useful in your research please cite:
+cite what???
 ### **How to install?**
 The model requires Python 3 ( >= 3.7) and the following python packages:
 
@@ -29,7 +32,11 @@ pip install setuptools
 ```
 For more information, please see [here](https://packaging.python.org/tutorials/installing-packages/#install-pip-setuptools-and-wheel)
 
-3.  then what??? setup.py how to do that?
+3.  Run Setup.py inside FDR_estimation directory to install the model
+```
+cd FDR_estimation
+python Setup.py install
+```
 
 ### **Usage**
 ```
