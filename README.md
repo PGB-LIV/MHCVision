@@ -3,9 +3,6 @@ The tool for global and local flase discovery rate (FDR) estimation for MHC-pept
 ### **Introduction**
 "noname" is the model for global and local FDR estimation for the predicted scores of MHC-peptide binding affinity. The model utlilises the approach of the Expectation Maximisation (EM) algorithm with the method of moments to estimate the parameters of data distribution for determining the relative true and false data for global and local FDR calculation. The current version was build based on the predicted data using NetMHCpan (version >= 4.0). 
 
-Please see the original article for more information [here](link).
-If you fine "noname" useful in your research please cite:
-Insert the paper's citation
 ### **How to install?**
 The model requires Python 3 ( >= 3.7) and the following python packages:
 
