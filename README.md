@@ -18,7 +18,7 @@ To install the model:
 
 1. Clone this repository
 ```
-git clone https://github.com/PGB-LIV/FDRestimation
+git clone https://github.com/PGB-LIV/MHCVision
 ```
 For other methods for cloning a GitHub repository, please see  [here](https://help.github.com/articles/cloning-a-repository/)
 
