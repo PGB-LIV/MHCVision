@@ -396,6 +396,7 @@ class FDR:
                 size1 += d
         # calculate PEP using PDF of the beta distribution
         pep_list = []
+        true_prob_list = []
         for i in range(len(sim_score)):
             s = sim_score[i]/max_score
             if s == 1:  # do not allow s = 1
@@ -403,15 +404,17 @@ class FDR:
             pdf_1 = (beta.pdf(s, a1, b1)) * size1
             pdf_2 = (beta.pdf(s, a2, b2)) * size2
             pep = pdf_2/(pdf_1+pdf_2)
+            true_prob = 1-pep
             pep_list.append(pep)
-        return pep_list
+            true_prob_list.append(true_prob)
+        return true_prob_list
 
     def write_output(self):
         # open real data for being template
         int_file = self.template
         df_template = pd.read_csv(int_file, index_col=False).sort_values(by='IC50')
         df_template['FDR'] = self.estimate_fdr()
-        df_template['PEP'] = self.estimate_pep()
+        df_template['True probability (1-PEP)'] = self.estimate_pep()
         df_template.to_csv(self.output, index=False)
 
 
