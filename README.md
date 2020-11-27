@@ -31,7 +31,7 @@ For more information, please see [here](https://packaging.python.org/tutorials/i
 
 3.  Run Setup.py inside FDR_estimation directory to install the model
 ```
-cd FDRestimation
+cd MHCVission
 python Setup.py install
 ```
 
