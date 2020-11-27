@@ -29,7 +29,7 @@ pip install setuptools
 ```
 For more information, please see [here](https://packaging.python.org/tutorials/installing-packages/#install-pip-setuptools-and-wheel)
 
-3.  Run Setup.py inside FDR_estimation directory to install the model
+3.  Run Setup.py inside MHCVision directory to install the model
 ```
 cd MHCVision
 python Setup.py install
