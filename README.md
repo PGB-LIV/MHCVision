@@ -5,12 +5,12 @@ MHCVision is the model for global and local FDR estimation for the predicted sco
 
 ### **How to install?**
 The model requires Python 3 ( >= 3.7) and the following python packages:
-
-- pandas (>= 1.1.2)
-
-- numpy (>= 1.19.1)
-
-- scipy (>=1.5.2)
+```
+pandas (>= 1.1.2)
+numpy (>= 1.19.1)
+scipy (>=1.5.2)
+```
+For python installing packages, please see [here](https://packaging.python.org/tutorials/installing-packages/#use-pip-for-installing)
 
 If your system has both Python 2 and Python 3, please ensure that Python 3 is being used when following these instructions.
 
