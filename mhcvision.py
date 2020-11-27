@@ -4,16 +4,9 @@ import sys
 import pandas as pd
 import numpy as np
 from scipy.stats import beta
-"""
-201126
-- extension to MHCflurry
-"""
 
 argv = sys.argv
-
-"""
-check errors
-"""
+# load supported alleles 
 supported_allele_netpan = []
 supported_allele_flurry = []
 with open('supplied_alleles_NetMHCpan.txt', 'rt') as fhla:
@@ -22,7 +15,9 @@ with open('supplied_alleles_NetMHCpan.txt', 'rt') as fhla:
 with open('supplied_alleles_MHCflurry.txt', 'rt') as fhla:
     for line in fhla:
         supported_allele_flurry.append(line.strip())
-        
+ """
+check errors
+"""     
         
 # check if the user provided valid arguments
 def check_valid_argument(arg):
