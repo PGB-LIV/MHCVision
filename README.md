@@ -12,7 +12,7 @@ The model requires Python 3 ( >= 3.7) and the following python packages:
 
 - scipy (>=1.5.2)
 
-If your system has both Python 2 and Python 3, please make sure that Python 3 is being used when following these instructions.
+If your system has both Python 2 and Python 3, please ensure that Python 3 is being used when following these instructions.
 
 To install the model:
 
