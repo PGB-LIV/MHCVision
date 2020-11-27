@@ -83,7 +83,11 @@ def check_input_arg(hla, prediction, file):
         supported_allele = supported_allele_flurry
     if hla not in supported_allele:
         invalid_flag = True
-        print('Error: '+ hla + 'is not in "supplied_alleles_'+prediction+'.txt')
+        print('Error: '+ hla + ' is not in "supplied_alleles_'+prediction+'.txt')
+    # check prediction tools, they must be NetMHCpan or MHCflurry
+    if prediction not in ['NetMHCpan', 'MHCflurry']:
+        invalid_flag = True
+        print('Error: '+ prediction +' not supported tool, it must be NetMHCpan or MHCflurry')
     # check input file format
     df = pd.read_csv(file, sep=',')
     row1 = list(df.iloc[0,:])
