@@ -6,13 +6,14 @@ import numpy as np
 from scipy.stats import beta
 
 argv = sys.argv
+path = 'support_data/'
 # load supported alleles 
 supported_allele_netpan = []
 supported_allele_flurry = []
-with open('supplied_alleles_NetMHCpan.txt', 'rt') as fhla:
+with open(path+'supplied_alleles_NetMHCpan.txt', 'rt') as fhla:
     for line in fhla:
         supported_allele_netpan.append(line.strip())
-with open('supplied_alleles_MHCflurry.txt', 'rt') as fhla:
+with open(path+'supplied_alleles_MHCflurry.txt', 'rt') as fhla:
     for line in fhla:
         supported_allele_flurry.append(line.strip())
  """
@@ -109,7 +110,7 @@ The working scripts
 """
 # load parameter ranges, depend of which tool provided by the user
 _, prediton_tool, _, _ = extract_required_arg(argv)
-df_parameter_range = pd.read_csv('parameter_range_'+prediton_tool+'.csv')
+df_parameter_range = pd.read_csv(path+'parameter_range_'+prediton_tool+'.csv')
 hla_list = df_parameter_range.iloc[:,0]
 hla_parameter_range = {}
 for y in range(len(hla_list)):
