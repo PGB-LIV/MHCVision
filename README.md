@@ -1,5 +1,5 @@
 # MHCVision
-The tool for global and local flase discovery rate (FDR) estimation for MHC-peptide binding prediction
+The tool for global and local false discovery rate (FDR) estimation for MHC-peptide binding prediction
 ### **Introduction**
 MHCVision is the model for global and local FDR estimation for the predicted scores of MHC-peptide binding affinity. The model utlilises the approach of the Expectation Maximisation (EM) algorithm with the method of moments to estimate the parameters of data distribution for determining the relative true and false data for global and local FDR calculation. The current version is feasible for the predicted data using NetMHCpan (version >= 4.0) or MHCflurry. 
 
@@ -41,9 +41,9 @@ usage: mhcvision.py [options] input_file.csv -o/--output output_file.csv
 options:
 -a, --allele   REQUIRED: type the allele name i.e. HLA-A0101, which are supported in the "supplied_alleles.txt"
 -t, --tool     REQUIRED: Specify the MHC-peptide prediction tool you used, type NetMHCpan or MHCflurry
--i, --input    REQUIRED: specify the input filename, the input file must be in ".CSV" format (comma-separated values), the column headers must contain 'Peptide', 'IC50','%Rank'
+-i, --input    REQUIRED: specify the input filename, the input file must be in ".CSV" format (comma-separated values), the column headers must contain 'Peptide', 'IC50', '%Rank'
 -o, --output   Optional: specify the output filename 
--h, --help     Print the usage information'
+-h, --help     Print the usage information
 ```
 
 ### **Sample scripts**
