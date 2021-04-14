@@ -19,8 +19,6 @@ with open(path+'supplied_alleles_MHCflurry.txt', 'rt') as fhla:
 """
 check errors
 """     
-
-
 # check if the user provided valid arguments
 def check_valid_argument(arg):
     invalid_flag = False
@@ -38,7 +36,6 @@ def check_valid_argument(arg):
         print('\nPlease see help information below:')
     return invalid_flag
 
-
 # print help statement
 def print_help_():
     print('usage: mhcvision.py [options] input_file.csv -o/--output output_file.csv\n'
@@ -49,7 +46,6 @@ def print_help_():
           ', the column headers must contain "Peptide", "IC50","%Rank"\n'
           '-o, --output   Optional: specify the output filename\n'
           '-h, --help     Print the usage information')
-
 
 # extract argument values
 def extract_required_arg(arg):
@@ -70,7 +66,6 @@ def extract_required_arg(arg):
     else:
         out_file = 'output_' + arg[input_loc+1]
     return arg[allele_loc+1], arg[tool_loc+1], arg[input_loc+1], out_file
-
 
 # check the input table file format and allele name
 def check_input_arg(hla, prediction, file):
@@ -109,12 +104,9 @@ def check_input_arg(hla, prediction, file):
     if invalid_flag:
         print('\nPlease see help information below:')
     return invalid_flag
-
-
 """
 The working scripts
 """
-
 # collect values from each iterations
 weight = {'k1': [], 'k2': []}
 alpha_shape = {'k1': [], 'k2': []}
@@ -126,7 +118,6 @@ means = np.zeros(2)
 variances = np.zeros(2)
 a = np.zeros(2)  # alpha
 b = np.zeros(2)  # beta
-
 
 # convert IC50 scores to range of 0-1 for beta distribution
 # input file must contain four columns of log IC50 with header;HLA,pep,IC50,%rank
@@ -141,7 +132,6 @@ def convert_score_for_beta(file):
             converted_template[i] = 0.99999  # do not allow score = 1
     return converted_template
 
-
 class BMM:
     def __init__(self, score, hla, hla_parameter, file):
         # Initialise class method
@@ -149,8 +139,6 @@ class BMM:
         self.hla = hla  # input hla allele
         self.par_range = hla_parameter  # beta parameter ranges
         self.input = score  # data
-
-
     """
     1. define the number of cluster and calculate initial parameters
     """
@@ -185,7 +173,6 @@ class BMM:
             a[z] = a_i
             b[z] = b_i
         return converted_template
-
     """
     2. pdf for mixture beta
     """
@@ -197,7 +184,6 @@ class BMM:
             beta_pdf = beta.pdf(score, alp, bet)
             pdf_x.append(beta_pdf)
         return pdf_x
-
     """
     3. E steps 
     - do with each component
@@ -215,9 +201,8 @@ class BMM:
             likelihood_k.append(likelihood)
         likelihood_k = np.array(likelihood_k)
         return likelihood_k
-
     """
-    3. M steps 
+    4. M steps 
     - do with each component
     - Finds the maximum likelihood parameters of our model
     - use the current values for the parameters to evaluate the posterior probabilities 
@@ -278,9 +263,8 @@ class BMM:
             alpha_shape[key[i]].append(a[i])
             beta_shape[key[i]].append(b[i])
         return
-
     """
-    4. Termination
+    5. Termination
     - do iterate the EM step
     - each step return the Kq, max relative change of estimate parameters from the previous round
     - stop and return the best estimated parameters when Kq < 1e-5
@@ -333,7 +317,6 @@ class BMM:
                        'b1' + ',' + str(b1) + '\n' +
                        'b2' + ',' + str(b2) + '\n')
         return
-
 
 class FDR:
     def __init__(self, parameter, score, hla, int_file, out_file):
@@ -389,8 +372,6 @@ class FDR:
         df_template['True probability (1-PEP)'] = inversed_pep
         df_template.to_csv(self.output, index=False)
         return
-
-
 """
 Run the working script
 """
