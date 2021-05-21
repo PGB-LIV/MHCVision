@@ -4,13 +4,7 @@ import sys
 import pandas as pd
 import numpy as np
 from scipy.stats import beta
-import matplotlib.pyplot as plt
-import seaborn as sns
-"""
-version 210517 
-1. add beta 1 constraining mode
-2. define negative ration from IC50 > 10000
-"""
+
 argv = sys.argv
 path = 'support_data/'
 # load supported alleles 
@@ -25,8 +19,6 @@ with open(path+'supplied_alleles_MHCflurry.txt', 'rt') as fhla:
 """
 check errors
 """     
-
-
 # check if the user provided valid arguments
 def check_valid_argument(arg):
     invalid_flag = False
@@ -44,7 +36,6 @@ def check_valid_argument(arg):
         print('\nPlease see help information below:')
     return invalid_flag
 
-
 # print help statement
 def print_help_():
     print('usage: mhcvision.py [options] input_file.csv -o/--output output_file.csv\n'
@@ -55,7 +46,6 @@ def print_help_():
           ', the column headers must contain "Peptide", "IC50","%Rank"\n'
           '-o, --output   Optional: specify the output filename\n'
           '-h, --help     Print the usage information')
-
 
 # extract argument values
 def extract_required_arg(arg):
@@ -76,7 +66,6 @@ def extract_required_arg(arg):
     else:
         out_file = 'output_' + arg[input_loc+1]
     return arg[allele_loc+1], arg[tool_loc+1], arg[input_loc+1], out_file
-
 
 # check the input table file format and allele name
 def check_input_arg(hla, prediction, file):
@@ -116,11 +105,9 @@ def check_input_arg(hla, prediction, file):
         print('\nPlease see help information below:')
     return invalid_flag
 
-
 """
 The working scripts
 """
-
 # collect values from each iterations
 weight = {'k1': [], 'k2': []}
 alpha_shape = {'k1': [], 'k2': []}
@@ -136,7 +123,6 @@ b = np.zeros(2)  # beta
 a1fix = np.zeros(2)  # min, max
 b1fix = np.zeros(2)
 percent_neg = 0
-
 
 # convert IC50 scores to range of 0-1 for beta distribution
 # input file must contain four columns of log IC50 with header;HLA,pep,IC50,%rank
@@ -172,7 +158,6 @@ class BMM:
         self.hla = hla  # input hla allele
         self.par_range = hla_parameter  # beta parameter ranges
         self.input = score  # data
-
 
     """
     1. define the number of cluster and calculate initial parameters
@@ -240,7 +225,7 @@ class BMM:
         return likelihood_k
 
     """
-    3. M steps 
+    4. MM steps 
     - do with each component
     - Finds the maximum likelihood parameters of our model
     - use the current values for the parameters to evaluate the posterior probabilities 
@@ -317,7 +302,7 @@ class BMM:
         return
 
     """
-    4. Termination
+    5. Termination
     - do iterate the EM step
     - each step return the Kq, max relative change of estimate parameters from the previous round
     - stop and return the best estimated parameters when Kq < 1e-5
@@ -380,7 +365,7 @@ class BMM:
                        'b2' + ',' + str(b2) + '\n')
         return w1,w2,a1,a2,b1,b2
     """
-    5. Check the estimation results
+    6. Check the estimation results
     - we concern that the input data might contain only negative or positive results
     - In that case data distribution will might be captured as one peak that is not proper to calculate FDRs 
     - since the estimator model was built for two components of data distribution
