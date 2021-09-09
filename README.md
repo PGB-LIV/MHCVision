@@ -4,6 +4,7 @@ The tool for global and local false discovery rate (FDR) estimation for MHC-pept
 MHCVision is the model for global and local FDR estimation for the predicted scores of MHC-peptide binding affinity. The model utlilises the approach of the Expectation Maximisation (EM) algorithm with the method of moments to estimate the parameters of data distribution for determining the relative true and false data for global and local FDR calculation. The current version is feasible for the predicted data using NetMHCpan (version >= 4.0) or MHCflurry. 
 
 If you fine MHCVision useful in your research please cite:
+
 Pearngam, Phorutai, Sira Sriswasdi, Trairak Pisitkun, and Andrew R. Jones. "MHCVision: estimation of global and local false discovery rate for MHC class I peptide binding prediction." Bioinformatics (2021). https://doi.org/10.1093/bioinformatics/btab479
 
 ### **How to install?**
